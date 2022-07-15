@@ -3,9 +3,26 @@ package com.ibanfirst.exercices;
 public class MyFormaterApplication {
 
     public static void main(String[] args) {
-        String input = "type=A\ncontent=Lorem ipsum dolor sit amet.";
+        format("type=A\ncontent=Lorem ipsum dolor sit amet.");
+        // Input is: type=A
+        // content=Lorem ipsum dolor sit amet.
+        // Type is: A
+        // Content is: Lorem ipsum dolor sit amet.
+        // Output is: Loremipsumdolorsitamet
+
+        format("type=\ncontent=Lorem ipsum dolor sit amet.");
+        // Input is: type=
+        // content=Lorem ipsum dolor sit amet.
+        // Type is: Default
+        // Content is: Lorem ipsum dolor sit amet.
+        // Output is: .tema tis rolod muspi meroL
+    }
+
+    public static void format(String input) {
         System.out.println("Input is: " + input);
         System.out.println("Type is " + getType(input));
+        System.out.println("Content is " + getContent(input));
+
         String type = getType(input);
         String output = new String();
         if (type == "A") {
@@ -13,6 +30,7 @@ public class MyFormaterApplication {
         } else {
             output = formatDefaultType(getContent(input));
         }
+
         System.out.println("Output is: " + output);
     }
 
